@@ -1,6 +1,6 @@
 import sqlite3
 
-from utils import bands_final_database
+import bands_module_for_database
 
 """
 This main file is nearly identical to the main file called 'bands_text_file_main.py' located in my repository called 
@@ -26,7 +26,7 @@ Enter:
 # --------------------------------------------------START OF FUNCTIONS--------------------------------------------------
 def menu():
     user_input = input(USER_INPUT).lower()
-    bands_final_database.create_band_table()
+    bands_module_for_database.create_band_table()
     while user_input != 'q':
         if user_input == 'a':
             add_band()
@@ -51,7 +51,7 @@ def add_band():
         album = input("Enter an album ").lower()
         producer = input("Enter a producer ").lower()
 
-        bands_final_database.band_info(band, album, producer)
+        bands_module_for_database.band_info(band, album, producer)
     except sqlite3.IntegrityError:
         print("------------------------------------------------------------------------")
         print("\nThat band has already been added try another band.\n")
@@ -59,7 +59,7 @@ def add_band():
 
 
 def show_band():
-    bands = bands_final_database.list_band_info()
+    bands = bands_module_for_database.list_band_info()
     for band in bands:
         if band['heard'] == 0:
             read = "no"
@@ -72,12 +72,12 @@ def show_band():
 
 def heard_album():
     user_album = input("Enter an album to mark as listened to ").lower()
-    bands_final_database.listened_to_album_info(user_album)
+    bands_module_for_database.listened_to_album_info(user_album)
 
 
 def delete_band():
     band = input("Enter a band to delete ").lower()
-    bands_final_database.delete_band_info(band)
+    bands_module_for_database.delete_band_info(band)
 
 
 # --------------------------------------------------END OF FUNCTIONS----------------------------------------------------

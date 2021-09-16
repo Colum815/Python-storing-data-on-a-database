@@ -3,6 +3,13 @@ import sqlite3
 import bands_module_for_database
 
 """
+NOTE:
+I originally had a folder called utils where I was importing  bands_module_for_database file from there. For simplicity 
+I deleted the folder so now anyone should be able to create two python files, 
+one called bands_database_main.py and the other called bands_module_for_database.py
+in the same directory and import bands_module_for_database in the main. This will connect the two files and the program will run.
+
+
 This main file is nearly identical to the main file called 'bands_text_file_main.py' located in my repository called 
 Python-storing-data-in-a-text-file on Github which I explain everything on the page in depth. The main difference here 
 is that the data is now being stored in a database and not in a txt file. Menu () is the main function here which 

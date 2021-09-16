@@ -70,3 +70,5 @@ def delete_band_info(user):
     connection.commit()
     connection.close()
 
+
+
